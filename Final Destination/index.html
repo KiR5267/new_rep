@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <!--    <h1>Hello</h1>-->
+    </div>
+
+    <script type="text/babel">
+        const LogoContainer = (props) => { return (
+        <div className="logo-container">
+            <img src="img/logo.svg">
+            <span className="lavel-title">LEVEL {props.level}</span>
+        </div> ) } const Nav = () => { return (
+        <nav className="nav">
+            <LogoContainer level={ '0'} />
+            <ul className="nav-container">
+
+                <li className="active">Library</li>
+                <li>Training</li>
+                <li>Learn</li>
+
+            </ul>
+        </nav>
+
+        class Page extends React.Component { constructor(props) { super(props); this.state = { isOpen: true } } this.changMode = this.changMode.bind(this) } changMode() { this.setState(prevState => { isOpen: !prevState.isOpen }) } render() { return (
+        <div>
+            <div className="add-word-container">
+                {this.state.isOpen ?
+                <span className="label-title">Add new word</span> :
+                <div>
+                    <input placeholder="Enter new word" />}
+                    <button onClick={this.changMode} className="btn-round check"> &#10003;</button>
+                </div>
+
+                ) }
+                <button onClick={this.changMode} className="btn-round add"></button> const Score = (props) => { return (
+                <span>
+                    Score: {props.score} 
+                    </span> ) } const AddWord = () => { return ( ) } const App = () => { let score = '0' return (
+                <div className="app-wraper">
+                    <Nav />
+                    <Score score={score} />
+                    <Page />
+                </div>
+                ) } ReactDOM.render(
+                <Nav />, document.getElementById('root'))
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
